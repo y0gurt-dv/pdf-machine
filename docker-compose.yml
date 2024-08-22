@@ -1,5 +1,10 @@
 version: '3.8'
 
+x-nginx_environment: &nginx_environment
+  environment:
+    - DOMAIN_URL
+
+
 services:
   pdfmachine:
     build: ./backend
@@ -11,9 +16,9 @@ services:
       - 8000:8000
 
   nginx:
-      build: ./nginx
-      ports:
-        - 80:80
-        - 443:443
-      depends_on:
-        - pdfmachine
+    build: ./nginx
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - pdfmachine
