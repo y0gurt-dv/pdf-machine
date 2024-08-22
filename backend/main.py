@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     lifespan=lifespan,
     title="PDF Create",
-    docs_url="/docs/"
+    docs_url="/"
 )
 
 
