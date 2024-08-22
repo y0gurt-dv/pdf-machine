@@ -10,4 +10,10 @@ services:
     ports:
       - 8000:8000
 
-
+  nginx:
+      build: ./nginx
+      ports:
+        - 80:80
+        - 443:443
+      depends_on:
+        - web
