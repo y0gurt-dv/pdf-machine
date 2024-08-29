@@ -24,7 +24,3 @@ RUN apt-get update; \
 RUN ln -sf $(poetry env info -e) /python
 
 RUN poetry run playwright install --with-deps
-
-SHELL ["/bin/bash", "-c"]
-ENTRYPOINT echo "poetry run uvicorn main:app --host=0.0.0.0 --reload"
-
