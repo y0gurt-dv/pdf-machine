@@ -1,11 +1,11 @@
 FROM python:3.12-bookworm
 
 # Set environment variables
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONWARNINGS ignore
-ENV CURL_CA_BUNDLE ""
-ENV POETRY_VIRTUALENVS_CREATE true
-ENV PATH "${PATH}:/root/.local/bin"
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONWARNINGS=ignore
+ENV CURL_CA_BUNDLE=""
+ENV POETRY_VIRTUALENVS_CREATE=true
+ENV PATH="${PATH}:/root/.local/bin"
 
 
 
@@ -24,5 +24,6 @@ RUN apt-get update; \
 RUN ln -sf $(poetry env info -e) /python
 
 RUN poetry run playwright install --with-deps
+
 
 CMD ["poetry", "run", "uvicorn" "main:app", "--host=0.0.0.0", "--reload"]
