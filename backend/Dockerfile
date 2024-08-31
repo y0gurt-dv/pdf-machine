@@ -16,7 +16,7 @@ RUN apt-get update; \
     apt-get install \
         curl \
         git \
-        gcc \
+        gcc -y\
     && pip install --no-cache-dir --user poetry==1.7.1 \
     && poetry install --no-interaction --no-ansi \
     && pip install  --no-cache-dir --user requests
